@@ -79,6 +79,11 @@ namespace Ryujinx.Configuration
         public bool LoggingEnableFsAccessLog { get; set; }
 
         /// <summary>
+        /// Enable printing trace log messages.
+        /// </summary>
+        public bool LoggingEnableTrace { get; set; }
+
+        /// <summary>
         /// Controls which log messages are written to the log targets
         /// </summary>
         public LogClass[] LoggingFilteredClasses { get; set; }

@@ -139,6 +139,11 @@ namespace Ryujinx.Configuration
             public ReactiveObject<bool> EnableFsAccessLog { get; private set; }
 
             /// <summary>
+            /// Enables printing trace log messages
+            /// </summary>
+            public ReactiveObject<bool> EnableTrace { get; private set; }
+
+            /// <summary>
             /// Controls which log messages are written to the log targets
             /// </summary>
             public ReactiveObject<LogClass[]> FilteredClasses { get; private set; }
@@ -162,6 +167,7 @@ namespace Ryujinx.Configuration
                 EnableError        = new ReactiveObject<bool>();
                 EnableGuest        = new ReactiveObject<bool>();
                 EnableFsAccessLog  = new ReactiveObject<bool>();
+                EnableTrace        = new ReactiveObject<bool>();
                 FilteredClasses    = new ReactiveObject<LogClass[]>();
                 EnableFileLog      = new ReactiveObject<bool>();
                 GraphicsDebugLevel = new ReactiveObject<GraphicsDebugLevel>();
@@ -408,6 +414,7 @@ namespace Ryujinx.Configuration
                 LoggingEnableWarn         = Logger.EnableWarn,
                 LoggingEnableError        = Logger.EnableError,
                 LoggingEnableGuest        = Logger.EnableGuest,
+                LoggingEnableTrace        = Logger.EnableTrace,
                 LoggingEnableFsAccessLog  = Logger.EnableFsAccessLog,
                 LoggingFilteredClasses    = Logger.FilteredClasses,
                 LoggingGraphicsDebugLevel = Logger.GraphicsDebugLevel,
@@ -472,6 +479,7 @@ namespace Ryujinx.Configuration
             Logger.EnableError.Value               = true;
             Logger.EnableGuest.Value               = true;
             Logger.EnableFsAccessLog.Value         = false;
+            Logger.EnableTrace.Value               = false;
             Logger.FilteredClasses.Value           = Array.Empty<LogClass>();
             Logger.GraphicsDebugLevel.Value        = GraphicsDebugLevel.None;
             Logger.EnableFileLog.Value             = true;

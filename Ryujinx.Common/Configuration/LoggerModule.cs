@@ -15,6 +15,7 @@ namespace Ryujinx.Configuration
             ConfigurationState.Instance.Logger.EnableWarn.Event        += ReloadEnableWarning;
             ConfigurationState.Instance.Logger.EnableError.Event       += ReloadEnableError;
             ConfigurationState.Instance.Logger.EnableGuest.Event       += ReloadEnableGuest;
+            ConfigurationState.Instance.Logger.EnableTrace.Event       += ReloadEnableTrace;
             ConfigurationState.Instance.Logger.EnableFsAccessLog.Event += ReloadEnableFsAccessLog;
             ConfigurationState.Instance.Logger.FilteredClasses.Event   += ReloadFilteredClasses;
             ConfigurationState.Instance.Logger.EnableFileLog.Event     += ReloadFileLogger;
@@ -43,6 +44,11 @@ namespace Ryujinx.Configuration
         private static void ReloadEnableError(object sender, ReactiveEventArgs<bool> e)
         {
             Logger.SetEnable(LogLevel.Error, e.NewValue);
+        }
+
+        private static void ReloadEnableTrace(object sender, ReactiveEventArgs<bool> e)
+        {
+            Logger.SetEnable(LogLevel.Trace, e.NewValue);
         }
 
         private static void ReloadEnableGuest(object sender, ReactiveEventArgs<bool> e)

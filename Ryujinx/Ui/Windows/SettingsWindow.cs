@@ -36,6 +36,7 @@ namespace Ryujinx.Ui.Windows
         [GUI] CheckButton     _debugLogToggle;
         [GUI] CheckButton     _fileLogToggle;
         [GUI] CheckButton     _guestLogToggle;
+        [GUI] CheckButton     _traceLogToggle;
         [GUI] CheckButton     _fsAccessLogToggle;
         [GUI] Adjustment      _fsLogSpinAdjustment;
         [GUI] ComboBoxText    _graphicsDebugLevel;
@@ -151,6 +152,11 @@ namespace Ryujinx.Ui.Windows
             if (ConfigurationState.Instance.Logger.EnableGuest)
             {
                 _guestLogToggle.Click();
+            }
+
+            if (ConfigurationState.Instance.Logger.EnableTrace)
+            {
+                _traceLogToggle.Click();
             }
 
             if (ConfigurationState.Instance.Logger.EnableFsAccessLog)
@@ -396,6 +402,7 @@ namespace Ryujinx.Ui.Windows
             ConfigurationState.Instance.Logger.EnableStub.Value                = _stubLogToggle.Active;
             ConfigurationState.Instance.Logger.EnableDebug.Value               = _debugLogToggle.Active;
             ConfigurationState.Instance.Logger.EnableGuest.Value               = _guestLogToggle.Active;
+            ConfigurationState.Instance.Logger.EnableTrace.Value               = _traceLogToggle.Active;
             ConfigurationState.Instance.Logger.EnableFsAccessLog.Value         = _fsAccessLogToggle.Active;
             ConfigurationState.Instance.Logger.EnableFileLog.Value             = _fileLogToggle.Active;
             ConfigurationState.Instance.Logger.GraphicsDebugLevel.Value        = Enum.Parse<GraphicsDebugLevel>(_graphicsDebugLevel.ActiveId);
